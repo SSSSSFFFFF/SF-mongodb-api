@@ -1,4 +1,4 @@
-# sfcms
+# vuecli 3.0前端CMS内容管理系统，使用node-express-mongdb提供数据库接口
 
 ## Project setup
 ```
