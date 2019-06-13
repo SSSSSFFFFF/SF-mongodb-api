@@ -1,0 +1,6 @@
+{
+    "serverHost": "http://localhost",
+    "mongoIp" : "localhost",
+    "dbName": "SFCMS",
+    "webServer" : "http://139.196.102.62:8000/"
+}
