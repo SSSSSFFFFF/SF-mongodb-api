@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./jquery.js"></script>
+<script>
+var datas = {
+    a: '1',
+    b: '2',
+}
+$.ajax({
+    type: "post",
+    url: "http://139.196.102.62:8000/user",
+    data: JSON.stringify(datas),
+    contentType : 'application/json',
+    success: function (res) {
+        console.log(res)
+    },
+    error:function(err){
+        console.log(err)
+    }
+});
+</script>
+</html>
