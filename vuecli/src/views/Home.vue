@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+        Welcome to Your SFCMS App
+        <button @click="add">{{text}}</button>
+    </div>
   </div>
 </template>
 
@@ -12,6 +15,24 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  data(){
+    return{
+      text : "添加一条数据"
+    }
+  },
+  methods: {
+      add(){
+        axios({
+          method:'post',
+          url: requestUrl,
+          data: {
+            id:requestUrl
+          }
+        })
+      }
   }
+
 }
+
 </script>
