@@ -23,7 +23,9 @@ node app.js
 
 #### 示例
 ![Image text](http://139.196.102.62/img/TIM20190614135926.png)
+![Image text](http://139.196.102.62/img/weixin20190614143711.png)
 
+#### vue-cli数据可视化管理系统（待开发）
 ```
 //新建终端
 
@@ -37,8 +39,10 @@ npm run serve
 ```
 
 ***
-### 接口文档 
+### 接口文档 （开发中）
 
+#### 目录
+<a href="#插入一条或多条数据">插入一条或多条数据</a>
 
 配置项在根目录config.json，默认本地跑通后，用在服务器上自行更改，具体代码查看/node/app.js
 
@@ -47,8 +51,6 @@ npm run serve
 //默认
 var host = http://localhost:8888
 ```
-<a href="#插入一条或多条数据">插入一条或多条数据</a>
-
 
 
 #### 插入一条或多条数据
@@ -60,18 +62,18 @@ var datas = {
 	"collectionName" : "userInfo",
 	"data":[
 		{
-		"userInfo" : {
-			"name": "sbsf",
-			"email" : "1074260090@qq.com"
-		},
-		"stars": "6"
+            "userInfo" : {
+                "name": "sbsf",
+                "email" : "1074260090@qq.com"
+            },
+            "stars": "6"
 		},
 		{
-		"userInfo" : {
-			"name": "what",
-			"email" : "123@qq.com"
-		},
-		"stars": "1000"
+            "userInfo" : {
+                "name": "what",
+                "email" : "123@qq.com"
+            },
+            "stars": "1000"
 		}
 	]
 }
