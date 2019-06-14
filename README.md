@@ -81,7 +81,7 @@ var datas = {
 	]
 }
 ```
-#### 发送ajax,jqAjax写法，后面接口只提供datas和url
+#### 发送jq-ajax和axios写法，后面接口只提供datas和url
 ```
 $.ajax({
     type: "post",
