@@ -1,5 +1,3 @@
-
-
 // 数据库设置在根目录 config.json
 var json = require('../config.json');
 // mongodb的ip
