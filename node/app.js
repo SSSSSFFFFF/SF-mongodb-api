@@ -6,9 +6,8 @@ var json = require('../config.json');
 var mongoIp = json.mongoIp;
 // 服务器ip
 var host = json.serverHost;
-// 数据库名
-var dbName = json.dbName
-//表名
+//端口号
+var port = json.port
 
 var express = require('express');
 var app = express();
@@ -46,27 +45,33 @@ app.get('/123', function (req, res) {
 });
 
 // POST method route
-app.post("/collection", (req, res) => {
+app.post("/add", (req, res) => {
    //接收客户端请求主体数据
    req.on('data', (buf,err) => { 
       try{
          var obj = JSON.parse(buf.toString())
          buf = JSON.parse(buf.toString());
-         console.log('buf',buf)
-         var collectionName = buf.collectionName
          MongoClient.connect(url, {
             useNewUrlParser: true
          }, function (err, db) {
             if (err) throw err;
-            var dbase = db.db(dbName);
-            console.log('✅  created database:' + dbName);
-            dbase.createCollection(collectionName, function (err, res) {
-               if (err) throw err;
-               console.log('✅  created collection:' + collectionName);
-               db.close();
-            });
+
+            // 创建数据库
+               let dbase = db.db(buf.dataBase);
+               let col = buf.collectionName
+               console.log('✅  created database:' + buf.dataBase);
+            // 添加表和数据
+               buf.data.createTime = new Date()
+               dbase.collection(col).insertMany(buf.data, function (err, res) {
+                  if (err) throw err;
+                  console.log("✅  data insert success");
+                  db.close();
+               });
+               // 发送返回值
+               res.send(buf);
          });
-         res.send(buf);
+         
+      
       } catch(err){
          console.error(err)
       }
@@ -77,6 +82,6 @@ app.post("/collection", (req, res) => {
 
 //配置服务端口
 var server = app.listen(8888, function () {
-   console.log('✅  local address '+host+':8888')
+   console.log('✅  local address '+ host + port)
    console.log('✅  查看接口文档 ../README.md')
 })
