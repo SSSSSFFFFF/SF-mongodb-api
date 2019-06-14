@@ -1,4 +1,4 @@
-### 前后端分离的项目模式，ajax+express+mongodb
+### 前后端分离的项目模式，ajax+node+mongodb
 
 后端只需一次配置好此项目提供的数据库接口。<br>
 前端多次开发，直接操作MongoDB数据库增删改查。<br>
@@ -19,7 +19,7 @@ npm install
 node app.js
 ```
 ***
-#### 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用jquery等框架工具能请求ajax就可。
+#### 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。
 
 ```
 cd vue-cli 
@@ -34,7 +34,7 @@ npm run serve
 ***
 ### 接口文档 
 
-配置项在根目录config.json，默认本地跑通后，用在服务器上自行更改,具体代码查看/node/app.js
+配置项在根目录config.json，默认本地跑通后，用在服务器上自行更改，具体代码查看/node/app.js
 
 ```
 //host =  config.json下的 "serverHost" + "port"
@@ -43,7 +43,7 @@ var host = http://localhost:8888
 ```
 
 #### 创建数据（第一次如果没有表和数据库则自动创建）
-
+![Image text](https://raw.githubusercontent.com/SSSSSFFFFF/mdImages/master/TIM20190614135926.png?token=AIPP6XBT6D7QOYNOG3A5XRS5AM4KI)
 ```
 //定义数据
 var datas = {
