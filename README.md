@@ -43,7 +43,7 @@ var host = http://localhost:8888
 ```
 
 #### 创建数据（第一次如果没有表和数据库则自动创建）
-![Image text](https://raw.githubusercontent.com/SSSSSFFFFF/mdImages/master/TIM20190614135926.png?token=AIPP6XBT6D7QOYNOG3A5XRS5AM4KI)
+![Image text](http://139.196.102.62/img/TIM20190614135926.png)
 ```
 //定义数据
 var datas = {
