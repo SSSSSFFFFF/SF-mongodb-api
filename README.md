@@ -44,14 +44,15 @@ npm run serve
 
 
 ## 接口文档
-配置项在根目录config.json，默认本地跑通后，用在服务器上自行更改，具体代码查看/node/app.js
 
 
 ```
-//在index.html头部定义
+//在index.html中定义
+//接口ip为/node/app.js中执行的，具体代码查看/node/app.js
 <script>
     var host = "http://localhost:8888"
 </script>
+
 ```
 
 
@@ -65,7 +66,7 @@ var datas = {
 	"data":[
 		{
             "userInfo" : {
-                "name": "sbsf",
+                "name": "sf",
                 "email" : "1074260090@qq.com"
             },
             "stars": "6"
@@ -79,7 +80,7 @@ var datas = {
 		}
 	]
 }
-//发送ajax
+//发送ajax,jqAjax写法，后面接口只提供datas和url
 $.ajax({
     type: "post",
     url: host + "/add",
@@ -92,4 +93,12 @@ $.ajax({
         console.log(err)
     }
 });
+//axios写法
+axios.post(host + "/add",JSON.stringify(datas))
+    .then(res => {
+        console.log(res.data)
+    })
+    .catch(err => {
+        console.error(err); 
+ })
 ```
