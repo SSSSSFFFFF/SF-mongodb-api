@@ -79,7 +79,7 @@ app.post("/add", (req, res) => {
 
 
 //配置服务端口
-var server = app.listen(8888, function () {
+var server = app.listen(port, function () {
    console.log('✅  local address '+ host + port)
    console.log('✅  查看接口文档 ../README.md')
 })
