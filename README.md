@@ -1,10 +1,7 @@
-### 前后端分离的CMS内容管理系统，前端通过接口操作数据的解决方案
-### 后端使用node-express-mongdb提供数据库接口
-### 前端为主，使用vue-cli搭建
+### 前后端分离的项目模式，一次配置好此项目提供后端数据库接口。<br>前端多次开发，直接操作MongoDB数据库增删改查。
 
 
-
-#### 后端node项目启动
+#### 后端：node链接Mongodb，提供可供前端使用的操作数据库接口
 本地安装mongodb https://www.mongodb.com/download-center/community <br>
 ```
 cd node 
@@ -12,11 +9,11 @@ cd node
 //安装依赖
 npm install
 
-//启动数据库
+//启动数据库链接
 node app.js
 ```
 
-#### 新建一个终端，前端vue-cli项目启动
+#### 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用jquery等框架工具能请求ajax就可。
 ```
 cd vue-cli 
 
