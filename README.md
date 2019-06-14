@@ -1,4 +1,4 @@
-### 前后端分离的项目模式，ajax+node+mongodb
+## 前后端分离的项目模式，ajax+node+mongodb
 
 
 
@@ -8,7 +8,7 @@
 
 ***
 
-### 后端：node链接Mongodb，提供可供前端使用的操作数据库接口
+## 后端：node链接Mongodb，提供可供前端使用的操作数据库接口
 
     本地安装mongodb https://www.mongodb.com/download-center/community <br>
     ```
@@ -21,7 +21,7 @@
     node app.js
     ```
 ***
-### 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。
+## 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。
     #### 接口文档目录 （开发中）
     <a href="#插入一条或多条数据">插入一条或多条数据</a>
 
