@@ -1,4 +1,4 @@
-### 前后端分离的项目模式，一次配置好此项目提供后端数据库接口。<br>前端多次开发，直接操作MongoDB数据库增删改查。
+### 前后端分离的项目模式，ajax+express+mongodb，一次配置好此项目提供的后端数据库接口。<br>前端多次开发，直接操作MongoDB数据库增删改查。<br>案例：使用vue-cli 3.0搭建可视化数据库管理系统
 
 
 #### 后端：node链接Mongodb，提供可供前端使用的操作数据库接口
@@ -32,9 +32,9 @@ npm run serve
 ```
 //host =  config.json下的 "serverHost" + "port"
 //默认
-host = http://localhost:8888
+var host = http://localhost:8888
 ```
-#### 创建数据，表和数据库
+#### 创建数据（第一次如果没有表和数据库则自动创建）
 ```
 //定义数据
 var datas = {
@@ -60,7 +60,7 @@ var datas = {
 //发送ajax
 $.ajax({
     type: "post",
-    url: "http://localhost:8888/add",
+    url: host + "/add",
     data: JSON.stringify(datas),
     contentType : 'application/json',
     success: function (res) {
