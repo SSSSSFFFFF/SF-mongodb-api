@@ -80,7 +80,9 @@ var datas = {
 		}
 	]
 }
-//发送ajax,jqAjax写法，后面接口只提供datas和url
+```
+#### 发送ajax,jqAjax写法，后面接口只提供datas和url
+```
 $.ajax({
     type: "post",
     url: host + "/add",
@@ -93,7 +95,6 @@ $.ajax({
         console.log(err)
     }
 });
-//axios写法
 axios.post(host + "/add",JSON.stringify(datas))
     .then(res => {
         console.log(res.data)
