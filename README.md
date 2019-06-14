@@ -6,7 +6,7 @@
 
 ***
 
-#### 后端：node链接Mongodb，提供可供前端使用的操作数据库接口
+### 后端：node链接Mongodb，提供可供前端使用的操作数据库接口
 
 本地安装mongodb https://www.mongodb.com/download-center/community <br>
 ```
@@ -19,7 +19,10 @@ npm install
 node app.js
 ```
 ***
-#### 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。
+### 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。
+
+#### 示例
+![Image text](http://139.196.102.62/img/TIM20190614135926.png)
 
 ```
 //新建终端
@@ -36,7 +39,6 @@ npm run serve
 ***
 ### 接口文档 
 
-[1.创建数据](README#### 1.创建数据（第一次如果没有表和数据库则自动创建）)
 
 配置项在根目录config.json，默认本地跑通后，用在服务器上自行更改，具体代码查看/node/app.js
 
@@ -45,11 +47,14 @@ npm run serve
 //默认
 var host = http://localhost:8888
 ```
+<a href="#插入一条或多条数据">插入一条或多条数据</a>
 
-#### 创建数据（第一次如果没有表和数据库则自动创建）
-![Image text](http://139.196.102.62/img/TIM20190614135926.png)
+
+
+#### 插入一条或多条数据
+
 ```
-//定义数据
+//定义数据，第一次如果没有表和数据库则自动创建
 var datas = {
 	"dataBase" : "SFCMS",
 	"collectionName" : "userInfo",
