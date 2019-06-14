@@ -7,8 +7,8 @@
 ***
 
 ## 后端：node链接Mongodb，提供可供前端使用的操作数据库接口
-本地安装node <a href='http://nodejs.cn/download/'  target="_black" /><br>
-本地安装mongodb <a href='https://www.mongodb.com/download-center/community'  target="_black" /><br>
+本地安装node http://nodejs.cn/download/<br>
+本地安装mongodb https://www.mongodb.com/download-center/community <br>
 ```
 cd node 
 
