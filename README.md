@@ -1,7 +1,7 @@
 ## 接口文档目录 （开发添加中）
 <a href="#add-插入一条或多条数据">add-插入一条或多条数据</a><br>
-<a href="#query-查询指定条件的数据">query-查询指定条件的数据</a>
-<a href="#update-更新数据">update-更新数据</a>
+<a href="#query-查询指定条件的数据">query-查询指定条件的数据</a><br>
+<a href="#update-更新数据">update-更新数据</a><br>
 
 ## 前后端分离的项目模式，ajax+node+mongodb
 

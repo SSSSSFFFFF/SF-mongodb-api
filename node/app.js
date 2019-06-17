@@ -71,7 +71,6 @@ var apis = (db, buf, dbase, col, response, type) => {
          db.close();
       });
    } else if(type == 'query'){
-      console.log(buf.data)
       dbase.collection(col).find(buf.data).toArray(function (err, result) {
          if (err) throw err;
          result.code = '202'
