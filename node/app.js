@@ -55,7 +55,7 @@ var dbAndCol = (req, res, type)=>{
 // 通过api的type来区别做哪些对应的操作
 var apis = (db, buf, dbase, col, response, type) => {
    // 传过来的api的类型
-   console.log('🏽',type)
+   console.log('⭐',type)
    if(type == 'add'){
       // 添加时间
       buf.data.forEach(element => {
@@ -65,6 +65,8 @@ var apis = (db, buf, dbase, col, response, type) => {
          if (err) throw err;
          console.log("✅  data insert success");
          // 发送返回值
+         buf.code = '201'
+         buf.mean = '添加成功'
          response.send(buf);
          db.close();
       });
@@ -72,11 +74,26 @@ var apis = (db, buf, dbase, col, response, type) => {
       console.log(buf.data)
       dbase.collection(col).find(buf.data).toArray(function (err, result) {
          if (err) throw err;
+         result.code = '202'
+         result.mean = '查询成功'
          response.send(result);
          db.close();
      });
+   } else if (type == 'update'){
+      let whereStr = buf.whereStr;  // 查询条件
+      let updateStr = { $set: buf.updateStr };
+      
+      dbase.collection(col).updateMany(whereStr, updateStr, function (err, res) {
+         if (err) throw err;
+         let sendMessage = {
+            code : '202',
+            mean : '更新成功',
+            successNum: res.result.nModified
+         }
+         response.send(sendMessage);
+         db.close();
+      });
    }
-   
 }
 // 添加库，表和数据接口
 app.post("/add", (req, res) => {
@@ -86,6 +103,10 @@ app.post("/add", (req, res) => {
 // 查询接口
 app.post("/query",(req,res) => {
    dbAndCol(req, res, 'query');
+})
+//更新接口
+app.post("/update", (req, res) => {
+   dbAndCol(req, res, 'update');
 })
 
 

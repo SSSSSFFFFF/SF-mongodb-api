@@ -1,6 +1,7 @@
 ## 接口文档目录 （开发添加中）
 <a href="#add-插入一条或多条数据">add-插入一条或多条数据</a><br>
 <a href="#query-查询指定条件的数据">query-查询指定条件的数据</a>
+<a href="#update-更新数据">update-更新数据</a>
 
 ## 前后端分离的项目模式，ajax+node+mongodb
 
@@ -118,6 +119,26 @@ var datas = {
 	}
 }
 axios.post(host + "/query",JSON.stringify(datas))
+    .then(res => {
+        console.log(res.data)
+    })
+```
+
+#### update-更新数据
+```
+//whereStr查询条件
+//updateStr更改的内容
+var datas = {
+	"dataBase" : "SFCMS",
+	"collectionName" : "userInfo",
+	"whereStr" : {
+		"stars": "4"
+	},
+	"updateStr" : {
+		"createTime": "timeChanged"
+	}
+}
+axios.post(host + "/update",JSON.stringify(datas))
     .then(res => {
         console.log(res.data)
     })
