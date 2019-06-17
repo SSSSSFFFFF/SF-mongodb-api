@@ -1,6 +1,6 @@
 ## 接口文档目录 （开发添加中）
-<a href="#add 插入一条或多条数据">add 插入一条或多条数据</a><br>
-<a href="#query 查询指定条件的数据">query 查询指定条件的数据</a>
+<a href="#add-插入一条或多条数据">add-插入一条或多条数据</a><br>
+<a href="#query-查询指定条件的数据">query-查询指定条件的数据</a>
 
 ## 前后端分离的项目模式，ajax+node+mongodb
 
@@ -59,7 +59,7 @@ npm run serve
 ```
 
 
-#### add 插入一条或多条数据
+#### add-插入一条或多条数据
 
 ```
 //定义数据，第一次如果没有表和数据库则自动创建
@@ -107,7 +107,7 @@ axios.post(host + "/add",JSON.stringify(datas))
  })
 ```
 
-#### query 查询指定条件的数据
+#### query-查询指定条件的数据
 ```
 var datas = {
 	"dataBase" : "SFCMS",
