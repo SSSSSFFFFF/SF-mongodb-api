@@ -20,8 +20,9 @@ node app.js
 ```
 ***
 ## 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。
-#### 接口文档目录 （开发中）
-<a href="#插入一条或多条数据">插入一条或多条数据</a>
+#### 接口文档目录 （开发添加中）
+<a href="#插入一条或多条数据">插入一条或多条数据add</a>
+<a href="#查询指定条件的数据">查询指定条件的数据query</a>
 
 #### 示例
 ![Image text](http://139.196.102.62/img/TIM20190614135926.png)
@@ -56,7 +57,7 @@ npm run serve
 ```
 
 
-#### 插入一条或多条数据
+#### 插入一条或多条数据add
 
 ```
 //定义数据，第一次如果没有表和数据库则自动创建
@@ -69,7 +70,7 @@ var datas = {
                 "name": "sf",
                 "email" : "1074260090@qq.com"
             },
-            "stars": "6"
+            "stars": "4"
 		},
 		{
             "userInfo" : {
@@ -81,7 +82,7 @@ var datas = {
 	]
 }
 ```
-#### 发送jq-ajax和axios写法，后面接口只提供datas和url
+##### 发送jq-ajax和axios写法，后面接口只提供axios
 ```
 $.ajax({
     type: "post",
@@ -102,4 +103,20 @@ axios.post(host + "/add",JSON.stringify(datas))
     .catch(err => {
         console.error(err); 
  })
+```
+
+#### 查询指定条件的数据query
+```
+var datas = {
+	"dataBase" : "SFCMS",
+	"collectionName" : "userInfo",
+	"data":{
+		"stars": "4"
+		"userInfo.name": "sf",
+	}
+}
+axios.post(host + "/query",JSON.stringify(datas))
+    .then(res => {
+        console.log(res.data)
+    })
 ```

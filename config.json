@@ -1,6 +1,6 @@
 {
     "serverHost": "http://localhost",
-    "port":":8888",
+    "port":"8888",
     "mongoIp" : "localhost",
     "webServer" : "http://139.196.102.62:8000/"
 }
