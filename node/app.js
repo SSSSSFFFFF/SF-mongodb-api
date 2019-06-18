@@ -9,7 +9,8 @@ var port = json.port
 
 var express = require('express');
 var app = express();
-
+var dbAuth = json.dbAuth;
+var dbPasswords = json.dbPasswords;
 //设置允许跨域访问该服务，禁止他人访问需关闭允许跨域
 app.all('*', function (req, res, next) {
    res.header('Access-Control-Allow-Origin', '*');
@@ -21,7 +22,7 @@ app.all('*', function (req, res, next) {
 
 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://" + mongoIp + ":27017/";
+var url = "mongodb://" + dbAuth + ':' + dbPasswords + '@' + mongoIp + ":27017/";
 
 
 /* 创每个接口都要建库和表（有了则不创建）,传递参数和type = api的值 */
@@ -86,7 +87,6 @@ var apis = (db, buf, dbase, col, response, type) => {
          skipNum = limitNum * (buf.page - 1)
       }
       let mysort = buf.sort
-      
       dbase.collection(col).find(findData).skip(skipNum).limit(limitNum).sort(mysort).toArray(function (err, result) {
          if (err) throw err;
          result.code = '202'
@@ -129,6 +129,8 @@ var apis = (db, buf, dbase, col, response, type) => {
       let mysort = buf.sort
       dbase.collection(col).find().sort(mysort).toArray(function (err, result) {
          if (err) throw err;
+         result.code = '202'
+         result.mean = '排序成功'
          response.send(result);
          db.close();
       });

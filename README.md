@@ -25,13 +25,15 @@ npm install
 //启动数据库链接
 node app.js
 ```
-***
-## 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。
-
 
 #### 示例
 ![Image text](http://139.196.102.62/img/TIM20190614135926.png)
 ![Image text](http://139.196.102.62/img/weixin20190614143711.png)
+
+
+***
+## 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。
+
 
 #### vue-cli数据可视化管理系统（待开发）
 ```
@@ -51,10 +53,9 @@ npm run serve
 
 ## 接口文档
 
-
+### mongodb的ip密码配置在根目录下config.json
 ```
 //在index.html中定义
-//接口ip为/node/app.js中执行的，具体代码查看/node/app.js
 <script>
     var host = "http://localhost:8888"
 </script>
