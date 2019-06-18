@@ -1,6 +1,6 @@
 ## 接口文档目录
 <a href="#add-插入一条或多条数据">add-插入一条或多条数据</a><br>
-<a href="#query-分页、条件、排序一体查询">query-分页、条件、排序一体查询</a><br>
+<a href="#query-分页条件排序一体查询">query-分页、条件、排序一体查询</a><br>
 <a href="#update-更新数据">update-更新数据</a><br>
 <a href="#delete-删除数据">delete-删除数据</a><br>
 <a href="#sort-排序">sort-排序</a><br>
