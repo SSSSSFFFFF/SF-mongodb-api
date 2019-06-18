@@ -1,6 +1,6 @@
-## 接口文档
-
+## 前后端分离，ajax+node+mongodb ，提供前端使用的数据库增删改查api。
 ### 运行后端app.js后使用，mongodb的ip密码配置在根目录下config.json
+### 接口文档
 ```
 //在index.html中定义
 <script>
@@ -14,11 +14,7 @@
 <a href="#delete-删除数据">delete-删除数据</a><br>
 <a href="#sort-排序">sort-排序</a><br>
 
-## 前后端分离的项目模式，ajax+node+mongodb
 
-后端只需一次配置好此项目提供的数据库接口。<br>
-前端多次开发，直接操作MongoDB数据库增删改查。<br>
-案例：使用vue-cli 3.0搭建可视化数据库管理系统。(开发中)
 
 ***
 
