@@ -1,4 +1,13 @@
-## 接口文档目录
+## 接口文档
+
+### mongodb的ip密码配置在根目录下config.json
+```
+//在index.html中定义
+<script>
+    var host = "http://localhost:8888"
+</script>
+
+```
 <a href="#add-插入一条或多条数据">add-插入一条或多条数据</a><br>
 <a href="#query-分页条件排序一体查询">query-分页、条件、排序一体查询</a><br>
 <a href="#update-更新数据">update-更新数据</a><br>
@@ -53,14 +62,6 @@ npm run serve
 
 ## 接口文档
 
-### mongodb的ip密码配置在根目录下config.json
-```
-//在index.html中定义
-<script>
-    var host = "http://localhost:8888"
-</script>
-
-```
 
 
 #### add-插入一条或多条数据
