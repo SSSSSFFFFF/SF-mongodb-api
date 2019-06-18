@@ -13,7 +13,7 @@
 <a href="#update-更新数据">update-更新数据</a><br>
 <a href="#delete-删除数据">delete-删除数据</a><br>
 <a href="#sort-排序">sort-排序</a><br>
-<a href="#deleteCol-删除集合，谨慎使用！建议后端关闭该接口">deleteCol-删除集合，谨慎使用！建议后端关闭该接口</a><br>
+<a href="#deletecol-删除集合谨慎使用建议后端关闭该接口">deleteCol-删除集合，谨慎使用！建议后端关闭该接口</a><br>
 
 
 
