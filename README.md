@@ -168,11 +168,27 @@ axios.post(host + "/delete",JSON.stringify(datas))
 #### sort-排序
 ```
 //按指定字段排序，升序(1)降序(-1)
-{
+var datas = {
 	"dataBase" : "SFCMS",
 	"collectionName" : "userInfo",
 	"sort" : {
 		"createTime": -1
 	}
 }
+axios.post(host + "/sort",JSON.stringify(datas))
+    .then(res => {
+        console.log(res.data)
+    })
+```
+
+#### 删除集合，谨慎使用！建议后端关闭该接口
+```
+var datas = {
+	"dataBase" : "SFCMS",
+	"collectionName" : "userInfo"
+}
+axios.post(host + "/deleteCol",JSON.stringify(datas))
+    .then(res => {
+        console.log(res.data)
+    })
 ```

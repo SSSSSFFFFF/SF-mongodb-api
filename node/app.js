@@ -135,6 +135,18 @@ var apis = (db, buf, dbase, col, response, type) => {
          db.close();
       });
    }
+   //删除集合
+   else if (type == 'deleteCol') {
+         dbase.collection(col).drop(function (err, delOK) { // 执行成功 delOK 返回 true，否则返回 false
+            if (err) throw err;
+            let result = {
+               code: '202',
+               mean: '删除集合成功'
+            }
+            response.send(result);
+            db.close();
+         });    
+   }
 }
 
 /********POST请求********* */
@@ -160,9 +172,13 @@ app.post("/delete", (req, res) => {
 app.post("/sort", (req, res) => {
    dbAndCol(req, res, 'sort');
 })
+//删除集合
+app.post("/deleteCol", (req, res) => {
+   dbAndCol(req, res, 'deleteCol');
+})
 
 /***配置服务端口***/
 var server = app.listen(port, function () {
-   console.log('local address ' + host + ':' + port + '✅')
+   console.log('接口地址' + host + ':' + port + '✅')
    console.log('查看接口文档 https://github.com/SSSSSFFFFF/SFCMS' + '✅')
 })
