@@ -1,8 +1,9 @@
-## 接口文档目录 （开发添加中）
+## 接口文档目录
 <a href="#add-插入一条或多条数据">add-插入一条或多条数据</a><br>
 <a href="#query-查询指定条件的数据">query-查询指定条件的数据</a><br>
 <a href="#update-更新数据">update-更新数据</a><br>
 <a href="#delete-删除数据">delete-删除数据</a><br>
+<a href="#sort-排序">sort-排序</a><br>
 
 ## 前后端分离的项目模式，ajax+node+mongodb
 
@@ -159,4 +160,16 @@ axios.post(host + "/delete",JSON.stringify(datas))
     .then(res => {
         console.log(res.data)
     })
+```
+
+#### sort-排序
+```
+//按制定字段排序，升序(1)降序(-1)
+{
+	"dataBase" : "SFCMS",
+	"collectionName" : "userInfo",
+	"sort" : {
+		"createTime": -1
+	}
+}
 ```

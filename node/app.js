@@ -25,7 +25,7 @@ var url = "mongodb://" + mongoIp + ":27017/";
 
 
 /* 创每个接口都要建库和表（有了则不创建）,传递参数和type = api的值 */
-var dbAndCol = (req, res, type)=>{
+var dbAndCol = (req, res, type) => {
    //接收客户端请求主体数据
    req.on('data', (buffer, err) => {
       try {
@@ -38,13 +38,13 @@ var dbAndCol = (req, res, type)=>{
                // 创建数据库
                let dbase = db.db(buf.dataBase);
                let col = buf.collectionName
-               console.log('✅  created database:' + buf.dataBase);
+               console.log('database:' + buf.dataBase + '✅');
                // 添加表和数据
                apis(db, buf, dbase, col, res, type);
             } catch (e) {
                console.error(e)
             }
-            
+
          });
       } catch (err) {
          console.error(err)
@@ -64,7 +64,6 @@ var apis = (db, buf, dbase, col, response, type) => {
       });
       dbase.collection(col).insertMany(buf.data, function (err, res) {
          if (err) throw err;
-         console.log("✅  data insert success");
          // 发送返回值
          buf.code = '201'
          buf.mean = '添加成功'
@@ -98,7 +97,7 @@ var apis = (db, buf, dbase, col, response, type) => {
       });
    }
    //删除
-   else if(type = 'delete'){
+   else if(type == 'delete'){
       let whereStr = buf.whereStr;
       dbase.collection(col).deleteMany(whereStr, function (err, res) {
          if (err) throw err;
@@ -108,6 +107,15 @@ var apis = (db, buf, dbase, col, response, type) => {
             deletedCount: res.deletedCount
          }
          response.send(sendMessage);
+         db.close();
+      });
+   }
+   //排序
+   else if (type == 'sort') {
+      let mysort = buf.sort
+      dbase.collection(col).find().sort(mysort).toArray(function (err, result) {
+         if (err) throw err;
+         response.send(result);
          db.close();
       });
    }
@@ -132,9 +140,13 @@ app.post("/update", (req, res) => {
 app.post("/delete", (req, res) => {
    dbAndCol(req, res, 'delete');
 })
+//排序
+app.post("/sort", (req, res) => {
+   dbAndCol(req, res, 'sort');
+})
 
 /***配置服务端口***/
 var server = app.listen(port, function () {
-   console.log('✅  local address '+ host + ':' + port)
-   console.log('✅  查看接口文档 https://github.com/SSSSSFFFFF/SFCMS')
+   console.log('local address ' + host + ':' + port + '✅')
+   console.log('查看接口文档 https://github.com/SSSSSFFFFF/SFCMS' + '✅')
 })
