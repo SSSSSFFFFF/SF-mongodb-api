@@ -110,14 +110,19 @@ axios.post(host + "/add",JSON.stringify(datas))
  })
 ```
 
-#### query-查询指定条件的数据
+#### query-分页查询，条件查询
 ```
+//不需要分页、条件查询、排序可以不写对应字段
 var datas = {
 	"dataBase" : "SFCMS",
 	"collectionName" : "userInfo",
-	"data":{
-		"stars": "4"
-		"userInfo.name": "sf",
+	"page": 1,      //第几页
+	"pageSize" : 2, //每页显示个数
+	"data": {       //查询条件
+		"userInfo.name":"sf"
+	},
+	"sort":{        //按字段排序,升序(1)降序(-1)
+		"createTime": -1
 	}
 }
 axios.post(host + "/query",JSON.stringify(datas))
@@ -164,7 +169,7 @@ axios.post(host + "/delete",JSON.stringify(datas))
 
 #### sort-排序
 ```
-//按制定字段排序，升序(1)降序(-1)
+//按指定字段排序，升序(1)降序(-1)
 {
 	"dataBase" : "SFCMS",
 	"collectionName" : "userInfo",

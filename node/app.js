@@ -73,7 +73,21 @@ var apis = (db, buf, dbase, col, response, type) => {
    } 
    // 查询
    else if(type == 'query'){
-      dbase.collection(col).find(buf.data).toArray(function (err, result) {
+      let findData = '';
+      findData = buf.data
+      let limitNum  = 0;
+      //每页显示条数
+      if (buf.pageSize != undefined) {
+            limitNum = buf.pageSize;
+      }
+      //第几页
+      let skipNum = 0;
+      if (buf.page != undefined) {
+         skipNum = limitNum * (buf.page - 1)
+      }
+      let mysort = buf.sort
+      
+      dbase.collection(col).find(findData).skip(skipNum).limit(limitNum).sort(mysort).toArray(function (err, result) {
          if (err) throw err;
          result.code = '202'
          result.mean = '查询成功'
