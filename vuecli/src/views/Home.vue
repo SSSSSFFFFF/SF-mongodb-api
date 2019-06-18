@@ -23,32 +23,22 @@
     },
     methods: {
       add() {
-        var datas = {
-          "dataBase": "SFCMS",
-          "collectionName": "userInfo",
-          "data": [{
-              "userInfo": {
-                "name": "sbsf",
-                "email": "1074260090@qq.com"
-              },
-              "stars": "6"
-            },
-            {
-              "userInfo": {
-                "name": "what",
-                "email": "123@qq.com"
-              },
-              "stars": "1000"
-            }
-          ]
-        }
-        this.axios.post(host + "/add",JSON.stringify(datas))
-        .then(res => {
-          console.log(res.data)
-        })
-        .catch(err => {
-          console.error(err); 
-        })
+       //whereStr查询条件
+//updateStr更改的内容
+var datas = {
+	"dataBase" : "SFCMS",
+	"collectionName" : "userInfo",
+	"whereStr" : {
+		"stars": "4"
+	},
+	"updateStr" : {
+		"createTime": "timeChanged"
+	}
+}
+this.axios.post(host + "/update",JSON.stringify(datas))
+    .then(res => {
+        console.log(res.data)
+    })
       }
     }
 

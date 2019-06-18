@@ -112,5 +112,5 @@ app.post("/update", (req, res) => {
 // 配置服务端口
 var server = app.listen(port, function () {
    console.log('✅  local address '+ host + ':' + port)
-   console.log('✅  查看接口文档 ../README.md')
+   console.log('✅  查看接口文档 https://github.com/SSSSSFFFFF/SFCMS#query-%E6%9F%A5%E8%AF%A2%E6%8C%87%E5%AE%9A%E6%9D%A1%E4%BB%B6%E7%9A%84%E6%95%B0%E6%8D%AE')
 })
