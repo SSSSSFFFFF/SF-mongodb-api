@@ -24,7 +24,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://" + mongoIp + ":27017/";
 
 
-// 创每个接口都要建库和表（有了则不创建）,传递参数和type = api的值
+/* 创每个接口都要建库和表（有了则不创建）,传递参数和type = api的值 */
 var dbAndCol = (req, res, type)=>{
    //接收客户端请求主体数据
    req.on('data', (buffer, err) => {
@@ -52,10 +52,11 @@ var dbAndCol = (req, res, type)=>{
    });
 }
 
-// 通过api的type来区别做哪些对应的操作
+/* api 通过api的type来区别做哪些对应的操作 */
 var apis = (db, buf, dbase, col, response, type) => {
    // 传过来的api的类型
    console.log('⭐',type)
+   // 添加库，表和数据
    if(type == 'add'){
       // 添加时间
       buf.data.forEach(element => {
@@ -70,7 +71,9 @@ var apis = (db, buf, dbase, col, response, type) => {
          response.send(buf);
          db.close();
       });
-   } else if(type == 'query'){
+   } 
+   // 查询
+   else if(type == 'query'){
       dbase.collection(col).find(buf.data).toArray(function (err, result) {
          if (err) throw err;
          result.code = '202'
@@ -78,39 +81,60 @@ var apis = (db, buf, dbase, col, response, type) => {
          response.send(result);
          db.close();
      });
-   } else if (type == 'update'){
+   }
+   //更新
+   else if (type == 'update'){
       let whereStr = buf.whereStr;  // 查询条件
       let updateStr = { $set: buf.updateStr };
-      
       dbase.collection(col).updateMany(whereStr, updateStr, function (err, res) {
          if (err) throw err;
          let sendMessage = {
             code : '202',
             mean : '更新成功',
-            successNum: res.result.nModified
+            modifiedCount: res.modifiedCount
+         }
+         response.send(sendMessage);
+         db.close();
+      });
+   }
+   //删除
+   else if(type = 'delete'){
+      let whereStr = buf.whereStr;
+      dbase.collection(col).deleteMany(whereStr, function (err, res) {
+         if (err) throw err;
+         let sendMessage = {
+            code: '202',
+            mean: '删除成功',
+            deletedCount: res.deletedCount
          }
          response.send(sendMessage);
          db.close();
       });
    }
 }
-// 添加库，表和数据接口
+
+/********POST请求********* */
+
+// 添加库，表和数据
 app.post("/add", (req, res) => {
    dbAndCol(req, res , 'add');
 });
 
-// 查询接口
+// 查询
 app.post("/query",(req,res) => {
    dbAndCol(req, res, 'query');
 })
-//更新接口
+//更新
 app.post("/update", (req, res) => {
    dbAndCol(req, res, 'update');
 })
+//删除
+app.post("/delete", (req, res) => {
+   dbAndCol(req, res, 'delete');
+})
 
-
-// 配置服务端口
+/***配置服务端口***/
 var server = app.listen(port, function () {
    console.log('✅  local address '+ host + ':' + port)
-   console.log('✅  查看接口文档 https://github.com/SSSSSFFFFF/SFCMS#query-%E6%9F%A5%E8%AF%A2%E6%8C%87%E5%AE%9A%E6%9D%A1%E4%BB%B6%E7%9A%84%E6%95%B0%E6%8D%AE')
+   console.log('✅  查看接口文档 https://github.com/SSSSSFFFFF/SFCMS')
 })
