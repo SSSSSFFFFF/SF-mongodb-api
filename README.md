@@ -1,6 +1,6 @@
 ## 接口文档
 
-### mongodb的ip密码配置在根目录下config.json
+### 运行后端app.js后使用，mongodb的ip密码配置在根目录下config.json
 ```
 //在index.html中定义
 <script>
