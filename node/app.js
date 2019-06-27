@@ -11,6 +11,9 @@ var express = require('express');
 var app = express();
 var dbAuth = json.dbAuth;
 var dbPasswords = json.dbPasswords;
+var bodyParser = require('body-parser');
+// parse application/json
+app.use(bodyParser.json())
 //设置允许跨域访问该服务，禁止他人访问需关闭允许跨域
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -28,9 +31,8 @@ var url = "mongodb://" + dbAuth + ':' + dbPasswords + '@' + mongoIp + ":27017/";
 /* 创每个接口都要建库和表（有了则不创建）,传递参数和type = api的值 */
 var dbAndCol = (req, res, type) => {
     //接收客户端请求主体数据
-    req.on('data', (buffer, err) => {
         try {
-            let buf = JSON.parse(buffer.toString());
+            let buf = req.body;
             MongoClient.connect(url, {
                 useNewUrlParser: true
             }, function (err, db) {
@@ -50,7 +52,6 @@ var dbAndCol = (req, res, type) => {
         } catch (err) {
             console.error(err)
         }
-    });
 }
 
 /* api 通过api的type来区别做哪些对应的操作 */
