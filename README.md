@@ -52,7 +52,7 @@ node app.js
 ```
 //定义数据，第一次如果没有表和数据库则自动创建
 var datas = {
-	"dataBase" : "SFCMS",
+	"dataBase" : "SFAPI",
 	"collectionName" : "userInfo",
 	"data":[
 		{
@@ -99,7 +99,7 @@ axios.post(host + "/add",JSON.stringify(datas))
 ```
 //不需要分页、条件查询、排序可以不写对应字段
 var datas = {
-	"dataBase" : "SFCMS",
+	"dataBase" : "SFAPI",
 	"collectionName" : "userInfo",
 	"page": 1,      //第几页
 	"pageSize" : 2, //每页显示个数
@@ -121,7 +121,7 @@ axios.post(host + "/query",JSON.stringify(datas))
 //whereStr查询条件
 //updateStr更改的内容
 var datas = {
-	"dataBase" : "SFCMS",
+	"dataBase" : "SFAPI",
 	"collectionName" : "userInfo",
 	"whereStr" : {
 		"stars": "4"
@@ -140,7 +140,7 @@ axios.post(host + "/update",JSON.stringify(datas))
 ```
 //whereStr查询条件
 var datas = {
-	"dataBase" : "SFCMS",
+	"dataBase" : "SFAPI",
 	"collectionName" : "userInfo",
 	"whereStr" : {
 		"stars": "4"
@@ -156,7 +156,7 @@ axios.post(host + "/delete",JSON.stringify(datas))
 ```
 //按指定字段排序，升序(1)降序(-1)
 var datas = {
-	"dataBase" : "SFCMS",
+	"dataBase" : "SFAPI",
 	"collectionName" : "userInfo",
 	"sort" : {
 		"createTime": -1
@@ -171,7 +171,7 @@ axios.post(host + "/sort",JSON.stringify(datas))
 #### deleteCol-删除集合，谨慎使用！建议后端关闭该接口
 ```
 var datas = {
-	"dataBase" : "SFCMS",
+	"dataBase" : "SFAPI",
 	"collectionName" : "userInfo"
 }
 axios.post(host + "/deleteCol",JSON.stringify(datas))
