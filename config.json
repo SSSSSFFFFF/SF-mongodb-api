@@ -2,6 +2,6 @@
     "serverHost": "http://localhost",
     "port":"8888",
     "mongoIp" : "localhost",
-    "dbAuth":"admin",
-    "dbPasswords":"123456"
+    "dbAuth":"",
+    "dbPasswords":""
 }

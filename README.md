@@ -38,22 +38,7 @@ node app.js
 ![Image text](http://139.196.102.62/img/weixin20190614143711.png)
 
 
-***
-## 前端：此CMS内容管理系统使用vue-cli搭建，如只需使用接口用postman等框架工具能请求ajax就可。(开发中)
 
-
-#### vue-cli数据可视化管理系统（待开发）
-```
-//新建终端
-
-cd vue-cli 
-
-//安装依赖
-npm install
-
-//启动
-npm run serve
-```
 
 ***
 
