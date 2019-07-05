@@ -77,7 +77,7 @@ var datas = {
 $.ajax({
     type: "post",
     url: host + "/add",
-    data: JSON.stringify(datas),
+    data: datas,
     contentType : 'application/json',
     success: function (res) {
         console.log(res)
@@ -86,7 +86,7 @@ $.ajax({
         console.log(err)
     }
 });
-axios.post(host + "/add",JSON.stringify(datas))
+axios.post(host + "/add",datas)
     .then(res => {
         console.log(res.data)
     })
@@ -110,7 +110,7 @@ var datas = {
 		"createTime": -1
 	}
 }
-axios.post(host + "/query",JSON.stringify(datas))
+axios.post(host + "/query",datas)
     .then(res => {
         console.log(res.data)
     })
@@ -130,7 +130,7 @@ var datas = {
 		"createTime": "timeChanged"
 	}
 }
-axios.post(host + "/update",JSON.stringify(datas))
+axios.post(host + "/update",datas)
     .then(res => {
         console.log(res.data)
     })
@@ -146,7 +146,7 @@ var datas = {
 		"stars": "4"
 	}
 }
-axios.post(host + "/delete",JSON.stringify(datas))
+axios.post(host + "/delete",datas)
     .then(res => {
         console.log(res.data)
     })
@@ -162,7 +162,7 @@ var datas = {
 		"createTime": -1
 	}
 }
-axios.post(host + "/sort",JSON.stringify(datas))
+axios.post(host + "/sort",datas)
     .then(res => {
         console.log(res.data)
     })
@@ -174,7 +174,7 @@ var datas = {
 	"dataBase" : "SFAPI",
 	"collectionName" : "userInfo"
 }
-axios.post(host + "/deleteCol",JSON.stringify(datas))
+axios.post(host + "/deleteCol",datas)
     .then(res => {
         console.log(res.data)
     })
