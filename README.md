@@ -77,7 +77,7 @@ var datas = {
 $.ajax({
     type: "post",
     url: host + "/add",
-    data: datas,
+    data: JSON.stringify(datas),
     contentType : 'application/json',
     success: function (res) {
         console.log(res)
