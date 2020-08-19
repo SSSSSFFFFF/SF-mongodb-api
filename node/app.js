@@ -183,5 +183,5 @@ app.post("/deleteCol", (req, res) => {
 /***配置服务端口***/
 var server = app.listen(port, function () {
     console.log('接口地址' + host + ':' + port + '✅')
-    console.log('https://github.com/SSSSSFFFFF/SF-mongodb-api' + '✅')
+    console.log('文档查看：https://github.com/SSSSSFFFFF/SF-mongodb-api' + '✅')
 })
